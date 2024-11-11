@@ -5,13 +5,38 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    color: #ffffff;
     margin: 0;
+    background: url('background.gif') center center / cover no-repeat fixed;
     text-align: center;
+    position: relative;
 }
 
-header {
-    margin-top: 20px;
+body::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+header, main, #adviceContainer, buttons {
+    position: relative;
+    z-index: 2;
+}
+
+header h1{
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 main {
@@ -19,6 +44,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
 }
 
 #adviceContainer {
@@ -29,10 +55,52 @@ main {
     width: 80%;
     text-align: center;
     margin:20px 0;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 #adviceText {
     font-size: 24px;
     font-weight: bold;
     line-height: 1.4;
+}
+
+#buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin: 0 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #ffffff;
+    color: #815b14;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#buttons button:hover {
+    background: #8f5e14;
+    color: #ffffff;
+    transform: translateY(-3px)
+}
+
+#buttons buttons:disabled {
+    background: #aaaaaa;
+    color: #ffffff;
+    cursor: not allowed;
+    box-shadow: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
